@@ -1,0 +1,15 @@
+header {
+	margin: 0;
+	padding: 5px;
+	background-color: #376969;
+}
+
+header h1 {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-family: monospace;
+	font-style: italic;
+	font-size: 40px;
+	color: #fff;
+}
