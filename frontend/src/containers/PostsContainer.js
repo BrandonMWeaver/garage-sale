@@ -9,7 +9,7 @@ class PostsContainer extends Component {
 	render() {
 		return (
 			<div className="posts-container">
-				<Route exact path='/' render={() => <Post post={{ title: "Example" }} />} />
+				<Route exact path='/' render={() => [1,2,3,4,5].map((n) => <Post key={n} post={{ title: "Example" }} />)} />
 			</div>
 		);
 	}
