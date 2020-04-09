@@ -7,4 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 user = User.create(username: "example username", email: "example@example.com", password: "12345")
-user.items.create(user_id: user.id, name: "example item", image_path: "unavailable", description: "example description", price: 1.11)
+5.times do
+	user.items.create(user_id: user.id, name: "example item", image_path: "https://i.redd.it/w3kr4m2fi3111.png", description: "example description", price: 1.11)
+end
