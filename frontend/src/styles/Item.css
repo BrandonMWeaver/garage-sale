@@ -1,4 +1,4 @@
-.post {
+.item {
 	display: inline-block;
 	margin: 5px 0 0 5px;
 	padding: 5px;
@@ -6,7 +6,7 @@
 	background-color: #376969;
 }
 
-.post h3 {
+.item h3 {
 	margin: 0;
 	padding: 0;
 	font-family: monospace;
