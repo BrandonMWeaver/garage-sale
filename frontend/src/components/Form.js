@@ -8,7 +8,7 @@ class Form extends Component {
 			<form>
 				<input type="text" placeholder="username" />
 				<input type="password" placeholder="password" />
-				<input type={"submit"} value={this.props.type} />
+				<input type="submit" value={this.props.type} />
 			</form>
 		);
 	}

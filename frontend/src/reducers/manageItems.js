@@ -1,7 +1,7 @@
 export const manageItems = (state = [], action) => {
 	switch (action.type) {
 		case "GET_ITEMS":
-			const items = action.json.map(object => {
+			return action.json.map(object => {
 				return {
 					id: object.id,
 					name: object.name,
@@ -11,7 +11,6 @@ export const manageItems = (state = [], action) => {
 					user: object.user
 				}
 			});
-			return items;
 		default:
 			return state;
 	}

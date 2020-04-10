@@ -1,7 +1,11 @@
 class ItemsController < ApplicationController
 
 	def index
-		render json: Item.all, include: { user: { except: [:password_digest, :created_at, :updated_at] } }, except: [:user_id, :created_at, :updated_at]
+		if params[:user_id]
+			render json: User.find_by_id(params[:user_id]).items, include: { user: { except: [:password_digest, :created_at, :updated_at] } }, except: [:user_id, :created_at, :updated_at]
+		else
+			render json: Item.all, include: { user: { except: [:password_digest, :created_at, :updated_at] } }, except: [:user_id, :created_at, :updated_at]
+		end
 	end
 
 end
