@@ -7,7 +7,8 @@ export const NavigationBar = () => {
 	return (
 		<div className="navigation-bar">
 			<NavLink to='/'>Home</NavLink>
-			<NavLink to='/sign-in'>Sign In</NavLink>
+			<NavLink to="/sign-in">Sign In</NavLink>
+			<NavLink to="/create-account">Create Account</NavLink>
 		</div>
 	);
 }

@@ -28,6 +28,9 @@ class App extends Component {
         <Route exact path="/sign-in" render={() => {
           return <Form type="Sign In" />
         }} />
+        <Route exact path="/create-account" render={() => {
+          return <Form type="Create Account" />
+        }} />
         <Route exact path='/' render={() => {
           return <ItemsContainer resource='items' />
         }} />
