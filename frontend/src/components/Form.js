@@ -39,9 +39,10 @@ class Form extends Component {
 				{this.props.type === "Sign In" ? null : <input onChange={this.handleChange} name="email" type="email" placeholder="email" value={this.state.email} />}
 				<input onChange={this.handleChange} name="password" type="password" placeholder="password" value={this.state.password} />
 				<input type="submit" value={this.props.type} />
+				{this.props.currentUser && "message" in this.props.currentUser ? <p>{this.props.currentUser.message}</p> : null}
 			</form>
 		);
 	}
 }
 
-export default connect(null, { authenticateUser })(Form);
+export default connect(state => ({ currentUser: state.currentUser }), { authenticateUser })(Form);

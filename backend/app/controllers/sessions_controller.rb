@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 		if user && user.authenticate(params[:password])
 			render json: user, except: [:password_digest, :created_at, :updated_at]
 		else
-			render json: { message: "error" }
+			render json: { message: "Invalid username and/or password" }
 		end
 	end
 
