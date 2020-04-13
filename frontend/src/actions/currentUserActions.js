@@ -16,7 +16,7 @@ export const createUser = user => {
 
 export const authenticateUser = credentials => {
 	return dispatch => {
-		fetch("http://localhost:3000/sessions", {
+		fetch("http://localhost:3000/sign-in", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -27,6 +27,16 @@ export const authenticateUser = credentials => {
 		})
 		.then(response => response.json())
 		.then(json => dispatch({ type: "SET_CURRENT_USER", json }));
+	}
+}
+
+export const destroyCurrentUser = () => {
+	return dispatch => {
+		fetch("http://localhost:3000/sign-out", {
+			credentials: "include"
+		})
+		.then(response => response.json())
+		.then(json => dispatch({ type: "DESTROY_CURRENT_USER", json }));
 	}
 }
 

@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
 	end
 
 	def destroy
-
+		session.delete(:user_id)
+		render json: nil
 	end
 	
 	def get_current_user

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Header } from './components/Header';
-import { NavigationBar } from './components/NavigationBar';
+import NavigationBar from './components/NavigationBar';
 import UserForm from './components/UserForm';
 import ItemsContainer from './containers/ItemsContainer';
 

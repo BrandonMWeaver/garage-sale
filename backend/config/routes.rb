@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :sessions, only: [:create, :destroy]
+  post "/sign-in", to: "sessions#create"
+  get "/sign-out", to: "sessions#destroy"
   get "/current-user", to: "sessions#get_current_user"
   resources :items, only: [:index]
   resources :users, only: [:index, :create] do
