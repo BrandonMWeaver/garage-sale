@@ -1,3 +1,19 @@
+export const createUser = user => {
+	return dispatch => {
+		fetch("http://localhost:3000/users", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+				"Accept": "application/json"
+			},
+			credentials: "include",
+			body: JSON.stringify(user)
+		})
+		.then(response => response.json())
+		.then(json => dispatch({ type: "SET_CURRENT_USER", json }));
+	}
+}
+
 export const authenticateUser = credentials => {
 	return dispatch => {
 		fetch("http://localhost:3000/sessions", {

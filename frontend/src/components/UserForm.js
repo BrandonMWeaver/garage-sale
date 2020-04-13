@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { authenticateUser } from '../actions/currentUserActions';
+import { authenticateUser, createUser } from '../actions/currentUserActions';
 
 import '../styles/Form.css';
 
-class Form extends Component {
+class UserForm extends Component {
 	state = this.props.type === "Sign In" ? { username: '', password: '' } : { username: '', email: '', password: '' }
 
 	handleChange = event => {
@@ -17,13 +17,21 @@ class Form extends Component {
 	handleSubmit = event => {
 		event.preventDefault();
 		if (this.props.type === "Sign In") {
-			this.props.authenticateUser({ username: this.state.username, password: this.state.password })
+			this.props.authenticateUser({
+				username: this.state.username,
+				password: this.state.password
+			});
 			this.setState({
 				username: '',
 				password: ''
 			});
 		}
 		else {
+			this.props.createUser({
+				username: this.state.username,
+				email: this.state.email,
+				password: this.state.password
+			});
 			this.setState({
 				username: '',
 				email: '',
@@ -39,10 +47,10 @@ class Form extends Component {
 				{this.props.type === "Sign In" ? null : <input onChange={this.handleChange} name="email" type="email" placeholder="email" value={this.state.email} />}
 				<input onChange={this.handleChange} name="password" type="password" placeholder="password" value={this.state.password} />
 				<input type="submit" value={this.props.type} />
-				{this.props.currentUser && "error" in this.props.currentUser ? <p>{this.props.currentUser.error}</p> : null}
+				{this.props.currentUser && "errors" in this.props.currentUser ? this.props.currentUser.errors.map((error, index) => <p key={index}>{error}</p>) : null}
 			</form>
 		);
 	}
 }
 
-export default connect(state => ({ currentUser: state.currentUser }), { authenticateUser })(Form);
+export default connect(state => ({ currentUser: state.currentUser }), { authenticateUser, createUser })(UserForm);
