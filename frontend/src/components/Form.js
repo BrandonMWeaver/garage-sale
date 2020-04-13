@@ -39,7 +39,7 @@ class Form extends Component {
 				{this.props.type === "Sign In" ? null : <input onChange={this.handleChange} name="email" type="email" placeholder="email" value={this.state.email} />}
 				<input onChange={this.handleChange} name="password" type="password" placeholder="password" value={this.state.password} />
 				<input type="submit" value={this.props.type} />
-				{this.props.currentUser && "message" in this.props.currentUser ? <p>{this.props.currentUser.message}</p> : null}
+				{this.props.currentUser && "error" in this.props.currentUser ? <p>{this.props.currentUser.error}</p> : null}
 			</form>
 		);
 	}

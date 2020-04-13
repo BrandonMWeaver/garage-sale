@@ -8,9 +8,11 @@ import Form from './components/Form';
 import ItemsContainer from './containers/ItemsContainer';
 
 import { getUsers } from './actions/userActions';
+import { getCurrentUser } from './actions/currentUserActions';
 
 class App extends Component {
   componentDidMount() {
+    this.props.getCurrentUser();
     this.props.getUsers();
   }
 
@@ -46,4 +48,4 @@ class App extends Component {
   }
 }
 
-export default connect(state => ({ users: state.users }), { getUsers })(App);
+export default connect(state => ({ users: state.users }), { getUsers, getCurrentUser })(App);
