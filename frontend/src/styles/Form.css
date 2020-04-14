@@ -53,3 +53,45 @@ form p {
 ::placeholder {
 	color: #9b9b9b;
 }
+
+label {
+	display: block;
+	margin: 5px 0 0 0;
+	padding: 5px;
+	font-family: monospace;
+	font-size: 15px;
+	color: #fff;
+	background-color: #053737;
+}
+
+label:hover {
+	cursor: pointer;
+	outline: 1px solid #fff;
+}
+
+form input[type="file"] {
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+	width: 0;
+	height: 0;
+}
+
+form textarea {
+	display: block;
+	box-sizing: border-box;
+	margin: 5px 0 0 0;
+	padding: 5px;
+	width: 100%;
+	height: 200px;
+	resize: none;
+	font-family: monospace;
+	font-size: 15px;
+	color: #fff;
+	background-color: #053737;
+	border: none;
+}
+
+form textarea:focus {
+	outline: none;
+}

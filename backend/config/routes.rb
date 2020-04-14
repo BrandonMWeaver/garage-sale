@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   post "/sign-in", to: "sessions#create"
   get "/sign-out", to: "sessions#destroy"
   get "/current-user", to: "sessions#get_current_user"
-  resources :items, only: [:index]
+  resources :items, only: [:index, :create] do
+    get :image, on: :member
+  end
   resources :users, only: [:index, :create] do
     resources :items, only: [:index]
   end

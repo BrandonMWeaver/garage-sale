@@ -11,6 +11,8 @@ export const manageItems = (state = [], action) => {
 					user: object.user
 				}
 			});
+		case "POST_ITEM":
+			return [...state, action.json];
 		default:
 			return state;
 	}

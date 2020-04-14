@@ -9,8 +9,8 @@
 user1 = User.create(username: "example username 1", email: "example1@example.com", password: "12345")
 user2 = User.create(username: "example username 2", email: "example2@example.com", password: "abcde")
 5.times do
-	user1.items.create(name: "example item", image_path: "https://i.redd.it/w3kr4m2fi3111.png", description: "example description", price: 1.11)
+	user1.items.create(name: "example item", image_path: "http://localhost:3000/images/default.png", description: "example description", price: 1.11)
 end
 5.times do
-	user2.items.create(name: "EXAMPLE ITEM", image_path: "https://i.redd.it/w3kr4m2fi3111.png", description: "EXAMPLE DESCRIPTION", price: 2.22)
+	user2.items.create(name: "EXAMPLE ITEM", image_path: "http://localhost:3000/images/default.png", description: "EXAMPLE DESCRIPTION", price: 2.22)
 end

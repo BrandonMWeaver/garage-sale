@@ -5,6 +5,6 @@ export const manageCurrentUser = (state = null, action) => {
 		case "DESTROY_CURRENT_USER":
 			return action.json;
 		default:
-			return state
+			return state;
 	}
 }

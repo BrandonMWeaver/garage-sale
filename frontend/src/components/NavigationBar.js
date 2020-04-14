@@ -11,7 +11,10 @@ const NavigationBar = props => {
 		<div className="navigation-bar">
 			<NavLink to='/'>Home</NavLink>
 			{props.currentUser && "id" in props.currentUser ?
-			<NavLink to='#' onClick={props.destroyCurrentUser}>Sign Out</NavLink>
+			<>
+			<NavLink to='/' onClick={props.destroyCurrentUser}>Sign Out</NavLink>
+			<NavLink to="/post-item">Post Item</NavLink>
+			</>
 			:
 			<>
 			<NavLink to="/sign-in">Sign In</NavLink>
