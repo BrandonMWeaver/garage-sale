@@ -14,7 +14,10 @@ const Item = props => {
 			{props.item.imagePath ? <a href={props.item.imagePath} target="_blank" rel="noopener noreferrer"><img src={props.item.imagePath} alt={props.item.imagePath} /></a> : null}
 			<pre>{props.item.description}</pre>
 			<p>{props.item.user.email}</p>
-			{props.currentUser ? <button onClick={() => props.sellItem(props.item)} disabled={props.item.sold}>{props.item.sold ? "Sold" : `$${props.item.price}`}</button> : null}
+			{props.currentUser && "id" in props.currentUser ?
+			<button onClick={() => props.sellItem(props.item)} disabled={props.item.sold}>{props.item.sold ? "Sold" : `$${props.item.price}`}</button>
+			:
+			null}
 		</div>
 	);
 }
