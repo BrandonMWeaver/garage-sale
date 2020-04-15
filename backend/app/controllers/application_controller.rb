@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::API
 	include ActionController::Cookies
-	include ActionController::Helpers
 
 	def current_user
 		return @current_user ||= User.find_by(id: session[:user_id])

@@ -27,3 +27,18 @@ export const postItem = item => {
 		.then(json => dispatch({ type: "POST_ITEM", json }));
 	}
 }
+
+export const sellItem = item => {
+	return dispatch => {
+		fetch(`http://localhost:3000/items/${item.id}`, {
+			method: "PATCH",
+			headers: {
+				"Content-Type": "application/json",
+				"Accept": "application/json"
+			},
+			credentials: "include"
+		})
+		.then(response => response.json())
+		.then(json => dispatch({ type: "SELL_ITEM", json }))
+	}
+}

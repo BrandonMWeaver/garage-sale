@@ -19,10 +19,17 @@ class ItemsController < ApplicationController
 			else
 				item.update(image_path: "http://localhost:3000/images/default.png")
 			end
+			item.save
 			render json: item, include: { user: { except: [:password_digest, :created_at, :updated_at] } }, except: [:user_id, :created_at, :updated_at]
 		else
 			render json: { errors: item.errors.full_messages }
 		end
+	end
+
+	def update
+		item = Item.find_by_id(params[:id])
+		item.update(sold: true)
+		render json: item, include: { user: { except: [:password_digest, :created_at, :updated_at] } }, except: [:user_id, :created_at, :updated_at]
 	end
 
 	def image
