@@ -24,7 +24,7 @@ export const postItem = item => {
 			body: formData
 		})
 		.then(response => response.json())
-		.then(json => dispatch({ type: "POST_ITEM", json }));
+		.then(json => "errors" in json ? dispatch({ type: "SET_ITEM_ERRORS", json }) : dispatch({ type: "POST_ITEM", json }));
 	}
 }
 

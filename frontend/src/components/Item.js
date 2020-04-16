@@ -15,7 +15,7 @@ const Item = props => {
 			<pre>{props.item.description}</pre>
 			<p>{props.item.user.email}</p>
 			{props.currentUser && "id" in props.currentUser ?
-			<button onClick={() => props.sellItem(props.item)} disabled={props.item.sold}>{props.item.sold ? "Sold" : `$${props.item.price}`}</button>
+			<button onClick={() => props.sellItem(props.item)} disabled={props.item.sold}>{props.item.sold ? "Sold" : `$${parseFloat(props.item.price).toFixed(2)}`}</button>
 			:
 			null}
 		</div>

@@ -62,7 +62,7 @@ export const getCart = currentUser => {
 
 export const removeItemFromCart = item => {
 	return dispatch => {
-		fetch(`http://localhost:3000/items/${item.id}/remove_item_from_cart`, {
+		fetch(`http://localhost:3000/items/${item.id}/remove-item-from-cart`, {
 			credentials: "include"
 		})
 		.then(response => response.json())

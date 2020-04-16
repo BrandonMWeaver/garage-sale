@@ -47,9 +47,10 @@ class ItemForm extends Component {
 				<textarea onChange={this.handleChange} name="description" placeholder="description" value={this.state.description} />
 				<input onChange={this.handleChange} type="number" name="price" placeholder="price" value={this.state.price} />
 				<input type="submit" value="Post Item" />
+				{this.props.errors ? this.props.errors.map((error, index) => <p key={index} className="error">{error}</p>) : null}
 			</form>
 		);
 	}
 }
 
-export default connect(null, { postItem })(ItemForm);
+export default connect(state => ({ errors: state.manageItems.errors }), { postItem })(ItemForm);

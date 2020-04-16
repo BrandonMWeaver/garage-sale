@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :items, only: [:index, :create, :update] do
     get :image, on: :member
     get :cart, on: :member
-    get :remove_item_from_cart, on: :member
+    get "remove-item-from-cart", on: :member
   end
   resources :users, only: [:index, :create] do
     resources :items, only: [:index]

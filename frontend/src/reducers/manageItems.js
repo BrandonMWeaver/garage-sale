@@ -1,4 +1,4 @@
-export const manageItems = (state = { items: [], cart: [] }, action) => {
+export const manageItems = (state = { items: [], cart: [], errors: [] }, action) => {
 	switch (action.type) {
 		case "GET_ITEMS":
 			return {...state, items: action.json.map(object => {
@@ -27,7 +27,7 @@ export const manageItems = (state = { items: [], cart: [] }, action) => {
 				}
 			})}
 		case "POST_ITEM":
-			return {...state, items: [...state.items, action.json]}
+			return {...state, errors: [], items: [...state.items, action.json]}
 		case "SELL_ITEM":
 			const item = {
 				id: action.json.id,
@@ -41,6 +41,8 @@ export const manageItems = (state = { items: [], cart: [] }, action) => {
 			}
 			const index = state.items.findIndex(i => i.id === item.id);
 			return {...state, items: [...state.items.slice(0, index), item, ...state.items.slice(index + 1)]}
+		case "SET_ITEM_ERRORS":
+			return {...state, errors: action.json.errors}
 		default:
 			return state;
 	}

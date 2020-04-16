@@ -95,3 +95,7 @@ form textarea {
 form textarea:focus {
 	outline: none;
 }
+
+form p.error {
+	color: #690505;
+}

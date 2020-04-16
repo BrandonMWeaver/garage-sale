@@ -47,7 +47,7 @@ class UserForm extends Component {
 				{this.props.type === "Sign In" ? null : <input onChange={this.handleChange} name="email" type="email" placeholder="email" value={this.state.email} />}
 				<input onChange={this.handleChange} name="password" type="password" placeholder="password" value={this.state.password} />
 				<input type="submit" value={this.props.type} />
-				{this.props.currentUser && "errors" in this.props.currentUser ? this.props.currentUser.errors.map((error, index) => <p key={index}>{error}</p>) : null}
+				{this.props.currentUser && "errors" in this.props.currentUser ? this.props.currentUser.errors.map((error, index) => <p key={index} className="error">{error}</p>) : null}
 			</form>
 		);
 	}

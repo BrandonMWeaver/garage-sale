@@ -19,11 +19,14 @@ class Cart extends Component {
 						<div key={item.id}>
 							<p>{item.name}</p>
 							<p className="button" onClick={() => this.props.removeItemFromCart(item)}>x</p>
-							<p>${item.price}</p>
+							<p>${parseFloat(item.price).toFixed(2)}</p>
 						</div>
 					);
 				})}
+				<div>
 				<h3>{`Total: $${this.props.items.reduce((acc, item) => acc + parseFloat(item.price), 0).toFixed(2)}`}</h3>
+				<h3>Buy</h3>
+				</div>
 			</div>
 		);
 	}
