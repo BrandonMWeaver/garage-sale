@@ -31,10 +31,14 @@
 	color: #fff;
 }
 
+.cart div p:last-child {
+	float: right;
+	margin-right: 15px;
+}
+
 .cart div p.button {
 	float: right;
 	color: #690505;
-	border: none;
 }
 
 .cart div p.button:focus {

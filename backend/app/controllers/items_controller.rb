@@ -2,9 +2,9 @@ class ItemsController < ApplicationController
 
 	def index
 		if params[:user_id]
-			render json: User.find_by_id(params[:user_id]).items, include: { user: { except: [:password_digest, :created_at, :updated_at] } }, except: [:user_id, :created_at, :updated_at]
+			render json: ItemSerializer.new(User.find_by_id(params[:user_id]).items).serialize
 		else
-			render json: Item.all, include: { user: { except: [:password_digest, :created_at, :updated_at] } }, except: [:user_id, :created_at, :updated_at]
+			render json: ItemSerializer.new(Item.all).serialize
 		end
 	end
 
@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
 				item.update(image_path: "http://localhost:3000/images/default.png")
 			end
 			item.save
-			render json: item, include: { user: { except: [:password_digest, :created_at, :updated_at] } }, except: [:user_id, :created_at, :updated_at]
+			render json: ItemSerializer.new(item).serialize
 		else
 			render json: { errors: item.errors.full_messages }
 		end
@@ -29,17 +29,17 @@ class ItemsController < ApplicationController
 	def update
 		item = Item.find_by_id(params[:id])
 		item.update(sold: true, buyer_id: current_user.id)
-		render json: item, include: { user: { except: [:password_digest, :created_at, :updated_at] } }, except: [:user_id, :created_at, :updated_at]
+		render json: ItemSerializer.new(item).serialize
 	end
 
 	def cart
-		render json: Item.in_cart(params[:id]), include: { user: { except: [:password_digest, :created_at, :updated_at] } }, except: [:user_id, :created_at, :updated_at]
+		render json: ItemSerializer.new(Item.in_cart(params[:id])).serialize
 	end
 
 	def remove_item_from_cart
 		item = Item.find_by_id(params[:id])
 		item.update(buyer_id: nil, sold: false)
-		render json: Item.in_cart(current_user.id), include: { user: { except: [:password_digest, :created_at, :updated_at] } }, except: [:user_id, :created_at, :updated_at]
+		render json: ItemSerializer.new(Item.in_cart(current_user.id)).serialize
 	end
 
 	def image

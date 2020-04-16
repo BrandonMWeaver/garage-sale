@@ -17,8 +17,9 @@ class Cart extends Component {
 				{this.props.items.map(item => {
 					return (
 						<div key={item.id}>
-							<p>{`${item.name} ${item.id}: $${item.price}`}</p>
+							<p>{item.name}</p>
 							<p className="button" onClick={() => this.props.removeItemFromCart(item)}>x</p>
+							<p>${item.price}</p>
 						</div>
 					);
 				})}

@@ -30,6 +30,12 @@ class ItemForm extends Component {
 	handleSubmit = event => {
 		event.preventDefault();
 		this.props.postItem(this.state);
+		this.setState({
+			name: '',
+			image: null,
+			description: '',
+			price: ''
+		});
 	}
 
 	render() {
