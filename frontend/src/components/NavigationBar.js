@@ -22,6 +22,7 @@ const NavigationBar = props => {
 			<NavLink to="/create-account">Create Account</NavLink>
 			</>
 			}
+			<NavLink to="/users">Users</NavLink>
 		</div>
 	);
 }

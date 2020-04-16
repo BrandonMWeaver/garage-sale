@@ -1,0 +1,40 @@
+.user {
+	display: inline-block;
+	margin: 5px 0 0 5px;
+	padding: 5px;
+	width: calc(20% - 15px);
+	background-color: #376969;
+}
+
+@media only screen and (max-width: 1620px) {
+	.user {
+		width: calc(25% - 15px);
+	}
+}
+
+@media only screen and (max-width: 1080px) {
+	.user {
+		width: calc(50% - 15px);
+	}
+}
+
+.user h3 {
+	margin: 0 0 5px 0;
+	padding: 0;
+	font-family: monospace;
+	font-size: 20px;
+	color: #fff;
+}
+
+.user a {
+	margin: 0;
+	padding: 0;
+	font-family: monospace;
+	font-size: 15px;
+	text-decoration: none;
+	color: #fff;
+}
+
+.user a:hover {
+	text-decoration: underline;
+}

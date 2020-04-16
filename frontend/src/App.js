@@ -8,6 +8,7 @@ import UserForm from './components/UserForm';
 import ItemForm from './components/ItemForm';
 import Cart from './components/Cart';
 import ItemsContainer from './containers/ItemsContainer';
+import { UsersContainer } from './containers/UsersContainer';
 
 import { getUsers } from './actions/userActions';
 import { getCurrentUser } from './actions/currentUserActions';
@@ -34,6 +35,9 @@ class App extends Component {
         }} />
         <Route exact path="/create-account" render={() => {
           return <UserForm type="Create Account" />
+        }} />
+        <Route exact path="/users" render={() => {
+          return <UsersContainer users={this.props.users} />
         }} />
         <Route exact path={this.props.currentUser && "id" in this.props.currentUser ? "/cart" : '/'} render={() => {
           return this.props.currentUser && "id" in this.props.currentUser ? <Cart /> : null
