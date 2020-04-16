@@ -1,9 +1,10 @@
-export const manageItems = (state = [], action) => {
+export const manageItems = (state = { items: [], cart: [] }, action) => {
 	switch (action.type) {
 		case "GET_ITEMS":
-			return action.json.map(object => {
+			return {...state, items: action.json.map(object => {
 				return {
 					id: object.id,
+					buyerId: object.buyer_id,
 					name: object.name,
 					imagePath: object.image_path,
 					description: object.description,
@@ -11,12 +12,26 @@ export const manageItems = (state = [], action) => {
 					sold: object.sold,
 					user: object.user
 				}
-			});
+			})}
+		case "GET_CART":
+			return {...state, cart: action.json.map(object => {
+				return {
+					id: object.id,
+					buyerId: object.buyer_id,
+					name: object.name,
+					imagePath: object.image_path,
+					description: object.description,
+					price: object.price,
+					sold: object.sold,
+					user: object.user
+				}
+			})}
 		case "POST_ITEM":
-			return [...state, action.json];
+			return {...state, items: [...state.items, action.json]}
 		case "SELL_ITEM":
 			const item = {
 				id: action.json.id,
+				buyerId: action.json.buyer_id,
 				name: action.json.name,
 				imagePath: action.json.image_path,
 				description: action.json.description,
@@ -24,8 +39,8 @@ export const manageItems = (state = [], action) => {
 				sold: action.json.sold,
 				user: action.json.user
 			}
-			const index = state.findIndex(i => i.id === item.id);
-			return [...state.slice(0, index), item, ...state.slice(index + 1)];
+			const index = state.items.findIndex(i => i.id === item.id);
+			return {...state, items: [...state.items.slice(0, index), item, ...state.items.slice(index + 1)]}
 		default:
 			return state;
 	}

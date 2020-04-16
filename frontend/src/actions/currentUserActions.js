@@ -49,3 +49,23 @@ export const getCurrentUser = () => {
 		.then(json => dispatch({ type: "SET_CURRENT_USER", json }));
 	}
 }
+
+export const getCart = currentUser => {
+	return dispatch => {
+		fetch(`http://localhost:3000/items/${currentUser.id}/cart`, {
+			credentials: "include"
+		})
+		.then(response => response.json())
+		.then(json => dispatch({ type: "GET_CART", json }));
+	}
+}
+
+export const removeItemFromCart = item => {
+	return dispatch => {
+		fetch(`http://localhost:3000/items/${item.id}/remove_item_from_cart`, {
+			credentials: "include"
+		})
+		.then(response => response.json())
+		.then(json => dispatch({ type: "GET_CART", json }));
+	}
+}

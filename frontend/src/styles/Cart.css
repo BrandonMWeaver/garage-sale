@@ -1,0 +1,48 @@
+.cart {
+	margin: 5px 0 0 5px;
+	padding: 5px;
+	width: calc(50% - 15px);
+	min-width: 300px;
+	background-color: #376969;
+}
+
+.cart h3 {
+	margin: 0;
+	padding: 0;
+	font-family: monospace;
+	font-size: 30px;
+	color: #fff;
+}
+
+.cart h3:last-child {
+	margin: 5px 0 0 0;
+}
+
+.cart div {
+	border-bottom: 1px solid #fff;
+}
+
+.cart div p {
+	display: inline-block;
+	margin: 5px 0 0 0;
+	padding: 0;
+	font-family: monospace;
+	font-size: 20px;
+	color: #fff;
+}
+
+.cart div p.button {
+	float: right;
+	color: #690505;
+	border: none;
+}
+
+.cart div p.button:focus {
+	outline: none;
+}
+
+.cart div p.button:hover {
+	cursor: pointer;
+	color: #fff;
+	text-shadow: 1px 1px #000;
+}

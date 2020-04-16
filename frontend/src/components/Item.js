@@ -22,4 +22,4 @@ const Item = props => {
 	);
 }
 
-export default connect(state => ({ currentUser: state.currentUser, items: state.items }), { sellItem })(Item);
+export default connect(state => ({ currentUser: state.currentUser, items: state.manageItems.items }), { sellItem })(Item);

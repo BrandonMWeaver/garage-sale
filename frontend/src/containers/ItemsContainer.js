@@ -23,4 +23,4 @@ class ItemsContainer extends Component {
 	}
 }
 
-export default connect(state => ({ items: state.items }), { getItems })(ItemsContainer);
+export default connect(state => ({ items: state.manageItems.items }), { getItems })(ItemsContainer);

@@ -9,11 +9,12 @@ import '../styles/NavigationBar.css';
 const NavigationBar = props => {
 	return (
 		<div className="navigation-bar">
-			<NavLink to='/'>Home</NavLink>
+			<NavLink to='/' className="left">Home</NavLink>
 			{props.currentUser && "id" in props.currentUser ?
 			<>
 			<NavLink to='/' onClick={props.destroyCurrentUser}>Sign Out</NavLink>
 			<NavLink to="/post-item">Post Item</NavLink>
+			<NavLink to="/cart" className="left">Cart</NavLink>
 			</>
 			:
 			<>

@@ -28,8 +28,18 @@ class ItemsController < ApplicationController
 
 	def update
 		item = Item.find_by_id(params[:id])
-		item.update(sold: true)
+		item.update(sold: true, buyer_id: current_user.id)
 		render json: item, include: { user: { except: [:password_digest, :created_at, :updated_at] } }, except: [:user_id, :created_at, :updated_at]
+	end
+
+	def cart
+		render json: Item.in_cart(params[:id]), include: { user: { except: [:password_digest, :created_at, :updated_at] } }, except: [:user_id, :created_at, :updated_at]
+	end
+
+	def remove_item_from_cart
+		item = Item.find_by_id(params[:id])
+		item.update(buyer_id: nil, sold: false)
+		render json: Item.in_cart(current_user.id), include: { user: { except: [:password_digest, :created_at, :updated_at] } }, except: [:user_id, :created_at, :updated_at]
 	end
 
 	def image

@@ -5,6 +5,6 @@ import { manageUsers } from './manageUsers';
 
 export const rootReducer = combineReducers({
 	currentUser: manageCurrentUser,
-	items: manageItems,
+	manageItems: manageItems,
 	users: manageUsers
 });
