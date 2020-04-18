@@ -52,7 +52,7 @@ class App extends Component {
         }} />
         {this.props.users.map(user => {
           return (
-            <Route key={user.id} exact path={`/${user.username.replace(/\s/g, '-').toLowerCase()}`} render={() => {
+            <Route key={user.id} exact path={`/users/${user.username.replace(/\s/g, '-').toLowerCase()}`} render={() => {
               return <ItemsContainer resource={`users/${user.id}/items`} />
             }} />
           );

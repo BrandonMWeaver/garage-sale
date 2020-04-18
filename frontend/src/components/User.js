@@ -7,7 +7,7 @@ export const User = props => {
 	return (
 		<div className="user">
 			<h3>{props.user.username}</h3>
-			<NavLink to={`/${props.user.username.replace(/\s/g, '-').toLowerCase()}`}>{`View ${props.user.username}'s items`}</NavLink>
+			<NavLink to={`/users/${props.user.username.replace(/\s/g, '-').toLowerCase()}`}>{`View ${props.user.username}'s items`}</NavLink>
 		</div>
 	);
 }
