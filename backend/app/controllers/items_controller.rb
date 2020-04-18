@@ -42,6 +42,11 @@ class ItemsController < ApplicationController
 		render json: ItemSerializer.new(Item.in_cart(current_user.id)).serialize
 	end
 
+	def destroy_items_in_cart
+		Item.in_cart(current_user.id).delete_all
+		render json: ItemSerializer.new(Item.in_cart(current_user.id)).serialize
+	end
+
 	def image
 		redirect_to url_for(Item.find_by_id(params[:id]).image)
 	end

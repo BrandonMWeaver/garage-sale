@@ -69,3 +69,13 @@ export const removeItemFromCart = item => {
 		.then(json => dispatch({ type: "GET_CART", json }));
 	}
 }
+
+export const destroyItemsInCart = () => {
+	return dispatch => {
+		fetch("http://localhost:3000/items/destroy-items-in-cart", {
+			credentials: "include"
+		})
+		.then(response => response.json())
+		.then(json => dispatch({ type: "GET_CART", json }));
+	}
+}

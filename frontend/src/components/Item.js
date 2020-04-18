@@ -15,7 +15,15 @@ const Item = props => {
 			<pre>{props.item.description}</pre>
 			<p>{props.item.user.email}</p>
 			{props.currentUser && "id" in props.currentUser ?
-			<button onClick={() => props.sellItem(props.item)} disabled={props.item.sold}>{props.item.sold ? "Sold" : `$${parseFloat(props.item.price).toFixed(2)}`}</button>
+			<button onClick={() => props.sellItem(props.item)} disabled={props.item.sold} style={{backgroundColor: props.item.sold ?
+			props.item.buyerId === props.currentUser.id ?
+			"#FFCD05" : "#690505"
+			: "#053737"}}>
+				{props.item.sold ?
+				props.item.buyerId === props.currentUser.id ? "In Cart" : "Sold"
+				:
+				`$${parseFloat(props.item.price).toFixed(2)}`}
+			</button>
 			:
 			null}
 		</div>

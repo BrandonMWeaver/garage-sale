@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getCart, removeItemFromCart } from '../actions/currentUserActions';
+import { getCart, removeItemFromCart, destroyItemsInCart } from '../actions/currentUserActions';
 
 import '../styles/Cart.css';
 
@@ -25,11 +25,11 @@ class Cart extends Component {
 				})}
 				<div>
 				<h3>{`Total: $${this.props.items.reduce((acc, item) => acc + parseFloat(item.price), 0).toFixed(2)}`}</h3>
-				<h3>Buy</h3>
+				<h3 onClick={this.props.destroyItemsInCart}>Buy</h3>
 				</div>
 			</div>
 		);
 	}
 }
 
-export default connect(state => ({ currentUser: state.currentUser, items: state.manageItems.cart }), { getCart, removeItemFromCart })(Cart);
+export default connect(state => ({ currentUser: state.currentUser, items: state.manageItems.cart }), { getCart, removeItemFromCart, destroyItemsInCart })(Cart);

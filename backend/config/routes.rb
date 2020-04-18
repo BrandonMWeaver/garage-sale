@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   post "/sign-in", to: "sessions#create"
   get "/sign-out", to: "sessions#destroy"
   get "/current-user", to: "sessions#get_current_user"
+  get "/items/destroy-items-in-cart", to: "items#destroy_items_in_cart"
   resources :items, only: [:index, :create, :update] do
     get :image, on: :member
     get :cart, on: :member
