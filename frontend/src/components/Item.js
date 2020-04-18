@@ -20,7 +20,7 @@ const Item = props => {
 			"#FFCD05" : "#690505"
 			: "#053737"}}>
 				{props.item.sold ?
-				props.item.buyerId === props.currentUser.id ? "In Cart" : "Sold"
+				props.item.buyerId === props.currentUser.id ? "In Cart" : "Unavailable"
 				:
 				`$${parseFloat(props.item.price).toFixed(2)}`}
 			</button>

@@ -1,0 +1,11 @@
+.about {
+	text-align: center;
+}
+
+.about p {
+	margin: 5px;
+	padding: 0;
+	font-family: monospace;
+	font-size: 20px;
+	color: #fff;
+}

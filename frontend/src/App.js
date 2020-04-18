@@ -3,7 +3,9 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { Header } from './components/Header';
+import { Footer } from './components/Footer';
 import NavigationBar from './components/NavigationBar';
+import { About } from './components/About';
 import UserForm from './components/UserForm';
 import ItemForm from './components/ItemForm';
 import Cart from './components/Cart';
@@ -55,6 +57,8 @@ class App extends Component {
             }} />
           );
         })}
+        <Route exact path='/' render={() => <Footer />} />
+        <Route exact path="/about" render={() => <About />} />
       </Router>
     );
   }
